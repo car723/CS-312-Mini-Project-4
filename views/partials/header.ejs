@@ -1,0 +1,13 @@
+<header>
+  <nav>
+    <a href="/posts">Home</a>
+    <% if (!currentUser) { %>
+      | <a href="/signup">Sign Up</a>
+      | <a href="/signin">Sign In</a>
+    <% } else { %>
+      | Hello, <%= currentUser.name %>!
+      | <a href="/logout">Logout</a>
+    <% } %>
+  </nav>
+  <hr>
+</header>

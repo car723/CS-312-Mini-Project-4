@@ -1,0 +1,47 @@
+<%- include("partials/header") %>
+
+<h1>Mini Blog</h1>
+
+<% if (currentUser) { %>
+  <!-- Create post form -->
+  <form action="/posts" method="POST">
+    <input type="text" name="title" placeholder="Post title" required>
+    <textarea name="content" placeholder="Write your post..." required></textarea>
+    <button type="submit">Create Post</button>
+  </form>
+<% } else { %>
+  <p>You must <a href="/signin">sign in</a> to create a post.</p>
+<% } %>
+
+<hr>
+
+<h2>All Posts</h2>
+<% if (posts.length === 0) { %>
+  <p>No posts yet.</p>
+<% } %>
+
+<ul>
+<% posts.forEach(post => { %>
+  <li>
+    <h3><%= post.title %></h3>
+    <p><%= post.body %></p>
+    <small>By <%= post.creator_name %> on <%= new Date(post.date_created).toLocaleString() %></small>
+
+    <% if (currentUser && currentUser.name === post.creator_name) { %>
+      <!-- Edit form -->
+      <form action="/posts/<%= post.blog_id %>?_method=PUT" method="POST">
+        <input type="text" name="title" value="<%= post.title %>" required>
+        <textarea name="content" required><%= post.body %></textarea>
+        <button type="submit">Update</button>
+      </form>
+
+      <!-- Delete form -->
+      <form action="/posts/<%= post.blog_id %>?_method=DELETE" method="POST">
+        <button type="submit" style="background:red;color:white;">Delete</button>
+      </form>
+    <% } %>
+  </li>
+<% }) %>
+</ul>
+
+<%- include("partials/footer") %>

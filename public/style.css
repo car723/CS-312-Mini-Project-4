@@ -1,0 +1,64 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 2rem;
+  background: #f5f5f5;
+}
+h1, h2 {
+  color: #333;
+}
+form {
+  margin-bottom: 1.5rem;
+}
+input, textarea {
+  display: block;
+  margin: 0.5rem 0;
+  width: 100%;
+  padding: 0.5rem;
+}
+button {
+  background: #007bff;
+  color: white;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  cursor: pointer;
+  border-radius: 5px;
+}
+button:hover {
+  background: #0056b3;
+}
+li {
+  background: white;
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+/* Navbar */
+header {
+  background: #007bff;
+  padding: 1rem;
+  color: white;
+}
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.navbar a {
+  color: white;
+  text-decoration: none;
+  margin-left: 1rem;
+}
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  margin-top: 2rem;
+  padding: 1rem;
+  background: #222;
+  color: #bbb;
+  border-radius: 8px;
+}
